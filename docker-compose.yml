@@ -1,0 +1,33 @@
+version: '3.5'
+services:
+  phoros-server:
+    build: server/
+    image: omarzos/phoros-server:latest
+    container_name: phoros-server
+    hostname: phoros-server
+    env_file:
+      - env/storage.env
+      - env/extractor.env
+      - env/transformer.env
+    ports:
+     # I exposed 2018, just a memory..
+      - 2018:8000
+    networks:
+      - phoros_net
+      - phoros_public_net
+    # --- for dev reasons ---
+    volumes:
+      - ./server/:/code
+    # -----------------------
+networks:
+  phoros_net: # the good old phoros_network
+    external: true
+  phoros_public_net: # to access from localhost
+    name: phoros_public_net
+    driver: bridge
+    
+volumes:
+  storage-server:
+    driver: local
+
+
