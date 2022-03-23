@@ -36,8 +36,8 @@ def storage():
     return {"message": "Hello World"}
 
 @app.post("/storage/query")
-def storage_submit_query(query: Query):
-    return {"message": "Hello World"}
+async def storage_query(query: Query):
+    return await handler.fetch_data(query.api,query.content,query.roadmap)
 
 # ----------- Transformation ---------------------------------
 

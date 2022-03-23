@@ -41,4 +41,10 @@ Open your browser (from your localhost) at:
    - [x] Light footprint.
    - [x] Automation of deployment.
 
+---
+**NOTE** 
+
+  -  On Ubuntu 20.04, containers have some problems with the firewall policies. [[Potential solution](https://stackoverflow.com/questions/30383845/what-is-the-best-practice-of-docker-ufw-under-ubuntu)]
+
+---
 

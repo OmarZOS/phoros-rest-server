@@ -16,5 +16,6 @@ class Extraction(BaseModel):
     starting_node: Optional[dict] = None
 
 class Query(BaseModel):
+    api:str
     content: dict
-    roadmap: Optional[str] = None
+    roadmap: Optional[list] = None
