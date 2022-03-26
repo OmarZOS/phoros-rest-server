@@ -21,7 +21,9 @@ services:
     # -----------------------
 networks:
   phoros_net: # the good old phoros_network
-    external: true
+    name: phoros_public_net
+    driver: bridge
+    # external: true
   phoros_public_net: # to access from localhost
     name: phoros_public_net
     driver: bridge
@@ -29,5 +31,3 @@ networks:
 volumes:
   storage-server:
     driver: local
-
-

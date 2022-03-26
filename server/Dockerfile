@@ -6,4 +6,7 @@ COPY . /code
 
 RUN pip3 install -r requirements.txt
 
-CMD ["uvicorn","server:app","--reload","--host","0.0.0.0"]
+# ssl config
+# RUN  ./certificate/certificates.sh 
+
+CMD ["uvicorn","server:app","--reload","--host","0.0.0.0","--ssl-keyfile","server.key","--ssl-certfile","server.crt"]
