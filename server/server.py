@@ -29,6 +29,20 @@ def extractors_list_worker():
 def extractor_submit_job(job : Extraction):
     return handler.submit_job(job)
 
+@app.post("/extractors/getvalue")
+def extractor_get_val(varname:str):
+    return handler.get_value(varname)
+
+@app.post("/extractors/setvalue")
+def extractor_set_val(varname:str,val:str):
+    return handler.set_value(varname,val)
+
+@app.get("/extractors/getall")
+def extractor_get_all():
+    return handler.get_all()
+
+
+
 # ----------- Storage ----------------------------------------
 
 @app.get("/storage")
@@ -36,8 +50,8 @@ def storage():
     return {"message": "Hello World"}
 
 @app.post("/storage/query")
-async def storage_query(query: Query):
-    return await handler.fetch_data(query.api,query.content,query.roadmap)
+def storage_query(query: Query):
+    return handler.fetch_data(query.api,query.content,query.roadmap)
 
 # ----------- Transformation ---------------------------------
 

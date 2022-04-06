@@ -1,6 +1,5 @@
-
 import wrappers.transformer.transformer as url_transformer_proxy
-# import wrappers.extractor.rpc_proxy as extractor_proxy 
+import wrappers.extractor.rpc_proxy as extractor_proxy 
 import wrappers.storage.storage as storage_service
 
 # --------------------- Extraction -----------------------------
@@ -13,8 +12,17 @@ def submit_job(job):
     res = extractor_proxy.submit_job(job)
     return {"message": f"Es ist getan!! {res}."}
 
-async def fetch_data(api,content,roadmap):
-    return await storage_service.get_data(api,content,roadmap)
+def get_value(var):
+    return extractor_proxy.get(var)
 
-async def get_transformation_services(args):
+def get_all():
+    return extractor_proxy.get_all()
+
+def set_value(var,val):
+    return extractor_proxy.set(var,val)
+
+def fetch_data(api,content,roadmap):
+    return storage_service.get_data(api,content,roadmap)
+
+def get_transformation_services(args):
     pass
