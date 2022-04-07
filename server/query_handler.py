@@ -15,6 +15,9 @@ def submit_job(job):
 def get_value(var):
     return extractor_proxy.get(var)
 
+def get_schemas():
+    return extractor_proxy.get_schemas()
+
 def get_all():
     return extractor_proxy.get_all()
 

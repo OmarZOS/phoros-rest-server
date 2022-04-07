@@ -18,6 +18,7 @@ def list_workers():
     return get_session().list_workers()
 
 def submit_job(job):
+    print(job.model)
     return get_session().start_harvesting_data(job.api_name,job.model,job.starting_node)
 
 def get(var):
@@ -28,3 +29,6 @@ def set(var,val):
     
 def get_all():
     return get_session().get_all_vars()
+
+def get_schemas():
+    return get_session().show_schemas()

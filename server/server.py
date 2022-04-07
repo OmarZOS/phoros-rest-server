@@ -41,7 +41,9 @@ def extractor_set_val(varname:str,val:str):
 def extractor_get_all():
     return handler.get_all()
 
-
+@app.get("/extractors/get_schemas")
+def extractor_get_schemas():
+    return handler.get_schemas()
 
 # ----------- Storage ----------------------------------------
 
